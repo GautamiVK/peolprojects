@@ -1,4 +1,6 @@
 // define a root UIComponent which exposes the main view
+
+//test commit
 jQuery.sap.declare("com.sap.shoppingcart.Component");
 jQuery.sap.require("sap.ca.scfld.md.ComponentBase");
 
