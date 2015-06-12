@@ -1,0 +1,85 @@
+<core:FragmentDefinition xmlns:m="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+
+
+	<m:FlexBox justifyContent="Center">
+		<l:Grid defaultSpan="L12 M12 S12" width="100%">
+			<l:content>
+				<f:SimpleForm id="register_form" minWidth="100%"
+					maxContainerCols="2" editable="true" layout="ResponsiveGridLayout"
+					labelSpanL="3" labelSpanM="3" emptySpanL="1"
+					emptySpanM="1" columnsL="1" columnsM="1" class="editableForm">
+					<f:content>
+						<m:Label text="{i18n>REGISTER_NAME_LABEL}" required="true"></m:Label>
+						<m:Input id="register_fname" placeholder="First name">
+							<m:layoutData>
+								<l:GridData span="L6 M6 S12" />
+							</m:layoutData>
+						</m:Input>
+						<m:Input id="register_lname" placeholder="Last name">
+							<m:layoutData>
+								<l:GridData span="L6 M6 S12" />
+							</m:layoutData>
+						</m:Input>
+						<m:Label  text="{i18n>REGISTER_DOB_LABEL}" required="true"></m:Label>
+						<m:DatePicker id="register_dob"  placeholder="Enter Date ..." change="handleChange" displayFormat="long" valueFormat="yyyy-MM-dd">
+							<m:layoutData>
+								<l:GridData span="L12 M12 S12" />
+							</m:layoutData>
+						</m:DatePicker>
+						<m:Label text="{i18n>REGISTER_CONTACT_LABEL}" required="true" />
+						<m:Input id="register_phone" placeholder="Phone">
+							<m:layoutData>
+								<l:GridData span="L12 M12 S12" />
+							</m:layoutData>
+						</m:Input>
+						<m:Label text="Email" required="true"/>
+						<m:Input id="register_email" placeholder="Email">
+							<m:layoutData>
+								<l:GridData span="L12 M12 S12" />
+							</m:layoutData>
+						</m:Input>
+						<m:Label text="{i18n>REGISTER_ADDRESS_LABEL}" />
+						<m:Input id="register_street1" placeholder="Street 1">
+							<m:layoutData>
+								<l:GridData span="L6 M6 S12" />
+							</m:layoutData>
+						</m:Input>
+						<m:Input id="register_street2" placeholder="Street 2">
+							<m:layoutData>
+								<l:GridData span="L6 M6 S12" />
+							</m:layoutData>
+						</m:Input>
+						<m:Label text="" />
+						<m:Input id="register_city" placeholder="City">
+							<m:layoutData>
+								<l:GridData span="L6 M6 S12" />
+							</m:layoutData>
+						</m:Input>
+						<m:Input id="register_state" placeholder="State">
+							<m:layoutData>
+								<l:GridData span="L6 M6 S12" />
+							</m:layoutData>
+						</m:Input>
+						<m:Label text="" />
+						<m:Input id="register_postalcode" placeholder="Postalcode">
+							<m:layoutData>
+								<l:GridData span="L6 M6 S12" />
+							</m:layoutData>
+						</m:Input>
+						<m:Input id="register_country" placeholder="Country">
+							<m:layoutData>
+								<l:GridData span="L6 M6 S12" />
+							</m:layoutData>
+						</m:Input>
+						<!-- <m:Select width="100%"> <m:items> <core:Item text="Germany" /> 
+							<core:Item text="USA" /> <core:Item text="England" /> </m:items> </m:Select> -->
+						<m:Label text="" />	
+							<m:Button id="Register_btn" text="{i18n>REGISTER_TEXT}" type="Accept"
+							press="_handleRegistration" justifyContent="Center" />
+					</f:content>
+				</f:SimpleForm>
+			</l:content>
+		</l:Grid>
+	</m:FlexBox>
+</core:FragmentDefinition>

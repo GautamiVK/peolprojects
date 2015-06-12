@@ -1,0 +1,34 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.sap.shoppingcart.view.Cart_S1"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Page title="Cart" showNavButton="true" navButtonPress="_handleNavButtonPress">
+		<headerContent>
+			<Button icon="sap-icon://log" press="_handleLogoutButtonPress"
+				text="{i18n>LOGOUT_TEXT}" type="Reject" />
+		</headerContent>
+
+
+		<List id="cartList" footerText="{i18n>}" delete="_handleEntryListDelete"
+			select="_handleEntryListSelect" items="{Cart>/Cart}" mode="Delete">
+			<items>
+				<ObjectListItem intro="{Cart>ITEMS} x" title="{Cart>NAME}"
+					number="{Cart>PRICE}" numberUnit="INR" iconInset="false"
+					iconDensityAware="false">
+					<customData>
+						<core:CustomData key="productId" value="{Cart>PRODUCTID}" />
+					</customData>
+				</ObjectListItem>
+			</items>
+		</List>
+		
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button xmlns="sap.m" id="btn_Order" text="Order" type="Reject"
+					justify="right" press="_handleOrder">
+				</Button>
+			</Toolbar>
+		</footer>
+	</Page>
+</core:View>

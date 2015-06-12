@@ -1,0 +1,103 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.sap.shoppingcart.view.Orders_S1" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{i18n>ORDER_SUMMARY_TITLE}" showNavButton="true" navButtonPress="_handleNavButtonPress">
+		
+
+			<!-- Header -->
+			<headerContent>
+				<Button id="cartIcon" icon="sap-icon://cart" press="_handleCartButtonPress"
+					text="{i18n>CART_ITEMS_DEF}"  />
+				<Button icon="sap-icon://log" press="_handleLogoutButtonPress"
+					text="{i18n>LOGOUT_TEXT}" type="Reject" />
+			</headerContent>
+
+			<!-- List -->
+			<!-- <List id="list_orders" select="handleListSelect" items="{/OrdersCollection}" class="sapUiFioriObjectPage">
+				<ObjectListItem press="handleListItemPress" title="{ORDERID}"
+					number="{AMOUNT}">
+					<attributes>
+					</attributes>
+					<firstStatus>
+						<ObjectStatus text="{SHIPSTATUS}" />
+					</firstStatus>
+				</ObjectListItem>
+			</List> -->
+			
+			<footer>
+			<Toolbar>
+				
+			</Toolbar>
+		</footer>
+			
+						
+			<Table id = "list_orders" headerText="{i18n>ORDER_TEXT}" items="{Orders>/OrdersCollection}" 
+     growing="true"
+	growingThreshold="3"
+	growingTriggerText="Load More"
+	growingScrollToLoad="false">
+			<columns>
+				<Column>
+					<header>
+						<Label text="{i18n>ORDER_ID_TEXT}" />
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+					<header>
+						<Label text="{i18n>ORDER_DELIVERY_DATE_TEXT}" />
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+					<header>
+						<Label text="{i18n>ORDER_AMOUNT_TEXT}" />
+					</header>
+				</Column>
+				<Column hAlign="Right">
+					<header>
+						<Label text="{i18n>ORDER_SHIP_STATUS_TEXT}" />
+					</header>
+				</Column>
+			</columns>
+			<ColumnListItem type="Navigation" press="_handleOrderItemPress">
+				<cells>
+					<ObjectIdentifier title="{Orders>ORDERID}" />
+					<Text
+						text="{ path: 'Orders>SHIPDATE', formatter: 'com.sap.shoppingcart.util.Formatter.dateConversion' }" />
+					<ObjectNumber number="{Orders>AMOUNT} + {Orders>SHIPPINGCOST}" numberUnit="INR" />
+					
+					<ObjectStatus 
+						text="{path: 'Orders>SHIPSTATUS', formatter: 
+						'com.sap.shoppingcart.util.Formatter.statusShipStatusText'}"
+						state="{path: 'Orders>SHIPSTATUS', formatter: 
+						'com.sap.shoppingcart.util.Formatter.statusShipStatusState'}" />
+						
+				</cells>
+			</ColumnListItem>
+		</Table>
+		
+		
+		<!-- order detail -->
+		<Table id = "list_orders_detail" headerText="{i18n>ORDER_DETAIL_TEXT}" visible="false" items="{OrderDetail>/OrderDetailCollection}" width="30%" >
+			<columns>
+				<Column>
+					<header>
+						<Label text="{i18n>ORDER_DETAIL_PRODUCT_ID_TEXT}" />
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+					<header>
+						<Label text="{i18n>ORDER_DETAIL_QUANTITY_TEXT}" />
+					</header>
+				</Column>
+			</columns>
+			<ColumnListItem type="Navigation" press="_handleOrderDetailItemPress">
+				<cells>
+					<ObjectIdentifier title="{OrderDetail>PRODUCTID}" />
+					<Text
+						text="{OrderDetail>ITEMS}" />
+				</cells>
+			</ColumnListItem>
+		</Table>
+			
+		
+	</Page>
+</core:View>

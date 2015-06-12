@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+	<Dialog title="Profile" class="sapUiPopupWithPadding" icon="sap-icon://customer">
+		<content>
+
+			<l:Grid defaultSpan="L12 M12 S12" width="auto">
+				<l:content>
+					<f:SimpleForm id="SimpleFormDisplay480" minWidth="1024"
+						maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+						labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0"
+						columnsL="2" columnsM="2">
+						<f:content>
+							<Label text="{i18n>REGISTER_NAME_LABEL}" />
+							<Text text="{FNAME} {LNAME}" />
+							<Label text="{i18n>REGISTER_EMAIL_LABEL}" />
+							<Text text="{EMAIL}" />
+							<Label text="{i18n>REGISTER_CONTACT_LABEL}" />
+							<Text text="{PHONE}" />
+							<Label text="{i18n>REGISTER_DOB_LABEL}" />
+							<Text text="{ path: 'DOB', formatter: 'com.sap.shoppingcart.util.Formatter.dateConversion' }" />
+							<Label text="{i18n>REGISTER_ADDRESS_LABEL}" />
+							<Text text="{STREET1} , {STREET2}" />
+							<Text text="{CITY} , {STATE}" />
+							<Text text="{COUNTRY} - {POSTALCODE}" />
+						</f:content>
+					</f:SimpleForm>
+				</l:content>
+			</l:Grid>
+		</content>
+
+		<beginButton>
+			<Button text="Ok" app:dialogType="Std" press="onDialogCloseButton" />
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

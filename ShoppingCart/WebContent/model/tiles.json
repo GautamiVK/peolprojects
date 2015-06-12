@@ -1,0 +1,27 @@
+{
+"TileCollection" : [
+    
+    {
+      "icon" : "customer",
+      "title" : "Profile"
+    },
+    
+    {
+      "icon" : "my-sales-order",
+      "title" : "Order History" ,
+      "type" : "Monitor"
+    },
+    
+    {
+      "icon" : "cart",
+      "title" : "Cart" ,
+      "number" : "0",
+      "numberUnit" : "items"
+    },
+    {
+      "icon" : "retail-store-manager",
+      "title" : "Shop" ,
+      "info" : "Click to shop"
+    }
+   ]
+}

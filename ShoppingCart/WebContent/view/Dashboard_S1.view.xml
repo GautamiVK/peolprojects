@@ -1,0 +1,26 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.sap.shoppingcart.view.Dashboard_S1"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{i18n>DASHBOARD_TITLE}" showHeader="true" enableScrolling="false">
+	
+		<headerContent>
+			<Button icon="sap-icon://log" press="_handleLogoutButtonPress"
+				text="Logout" type="Reject"/>
+		</headerContent>
+
+		<TileContainer id="tile_container" tiles="{path: 'tilesModel>/TileCollection'}">
+			<StandardTile id="tile_std" title="{tilesModel>title}" icon="sap-icon://{tilesModel>icon}"
+				number="{tilesModel>number}" numberUnit="{tilesModel>numberUnit}" info="{tilesModel>info}"  press="_handleTilePress" 
+				type="{tilesModel>type}" scale="L"/>  
+		</TileContainer>
+
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<ToolbarSpacer />
+			</Toolbar>
+		</footer>
+
+
+	</Page>
+</core:View>

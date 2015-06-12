@@ -1,0 +1,24 @@
+{
+"CategoriesCollection":[
+{
+"name":"ELE",
+"desc":"Electronics"
+},
+{
+"name":"BOO",
+"desc":"Books"
+},
+{
+"name":"LIF",
+"desc":"Lifestyle"
+},
+{
+"name":"ENT",
+"desc":"Entertainment"
+},
+{
+"name":"HOM",
+"desc":"Home Appliances"
+}
+]
+}

@@ -1,0 +1,62 @@
+<core:View xmlns:core="sap.ui.core" xmlns="sap.m"
+	controllerName="com.sap.shoppingcart.view.S3">
+	<Page title="{i18n>PRODUCT_DETAIL_TITLE}" showNavButton="true"
+		navButtonPress="_handleNavButtonPress">
+
+		<!-- Todo change title / number / number unit -->
+		<!-- <ObjectHeader title="{PRODNAME}" number="{PRODDESC}" numberUnit="{UNITSINSTOCK}"></ObjectHeader> 
+			<Label text=" Todo Insert your controls here..."></Label> -->
+
+		<headerContent>
+			<Button id="idCartIcon" icon="sap-icon://cart" press="_handleCartButtonPress"
+				text="{i18n>CART_ITEMS_DEF}" />
+			<Button id="idLogoutIcon" icon="sap-icon://logout" press="_handleLogoutButtonPress"
+				text="{i18n>LOGOUT_TEXT}" type="Reject" />
+		</headerContent>
+		<subHeader>
+			<Toolbar id="product_searchBar">
+				<SearchField id="idProductSearch" showRefreshButton="{device>/isNoTouch}"
+					placeholder="search..." liveChange="_handleSearchProducts" tooltip="search item"></SearchField>
+			</Toolbar>
+		</subHeader>
+
+		<footer>
+			<Toolbar>
+
+			</Toolbar>
+		</footer>
+
+		<IconTabBar id="idIconTabBarFilter" select="handleIconTabBarFilterSelect">
+			<items>
+				<IconTabFilter id="totalProdCount" showAll="true" count="0" text="Products"
+					keys="All" />
+				<IconTabSeparator />
+				<IconTabFilter id="lessTTT" icon="sap-icon://simple-payment" iconColor="Positive"
+					text="&lt; 10,000" key="lttt" />
+				<IconTabFilter id="gTTT" icon="sap-icon://simple-payment" iconColor="Negative"
+					text="&gt; 10,000" key="mttt" />
+				<IconTabFilter id="availProd" icon="sap-icon://accept" iconColor="Positive"
+					text="Available" key="avail" />
+				<IconTabFilter id="ofsProd" icon="sap-icon://decline" iconColor="Negative"
+					text="Out of Stock" key="ofs" />
+			</items>
+		</IconTabBar>
+
+		<List id="listProducts" items="{Products>/ProductsCollection}"
+			mode="{device>/listMode}" select="_handleSelect">
+			<ObjectListItem press="_handleListItemPress" title="{Products>PRODNAME}"
+				number="{Products>UNITPRICE}" numberUnit="INR" intro="{Products>PRODUCTID}">
+				<!-- <attributes> <ObjectAttribute text="{PRODUCTID}" /> </attributes> -->
+				<firstStatus>
+					<ObjectStatus
+						text="{path: 'Products>AVAILABLE', formatter: 
+						'com.sap.shoppingcart.util.Formatter.statusProductAvailabilityText'}"
+						state="{path: 'Products>AVAILABLE', formatter: 
+						'com.sap.shoppingcart.util.Formatter.statusProductAvailabilityState'}" />
+				</firstStatus>
+			</ObjectListItem>
+		</List>
+
+
+	</Page>
+</core:View>

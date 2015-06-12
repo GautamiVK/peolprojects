@@ -1,0 +1,98 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.sap.shoppingcart.view.ProductDetail_S3"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Page title="{i18n>PRODUCT_DETAIL_TITLE}" showNavButton="true" navButtonPress="_handleNavButtonPress">
+
+		<headerContent>
+			<Button id="idCartIcon" icon="sap-icon://cart" press="_handleCartButtonPress"
+				text="{i18n>CART_ITEMS_DEF}" />
+			<Button id="idLogoutIcon" icon="sap-icon://logout" press="_handleLogoutButtonPress"
+				text="{i18n>LOGOUT_TEXT}" type="Reject" />
+		</headerContent>
+
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Button xmlns="sap.m" id="btn_addToCart" text="{i18n>ADD_TO_CART}" icon="sap-icon://add"
+					type="Accept" justify="right" press="_handleAddToCart">
+				</Button>
+				<Button xmlns="sap.m" id="btn_buy" text="{i18n>PROCEED_TO_BUY_TEXT}"
+					type="Emphasized" justify="right" press="_handleBuyButtonPress">
+				</Button>
+			</Toolbar>
+		</footer>
+
+		<f:SimpleForm id="SimpleForm" minWidth="1024"
+			maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+			title="{i18n>PRODUCT_DETAILS_TEXT}" labelSpanL="4" labelSpanM="4" emptySpanL="1"
+			emptySpanM="1" columnsL="1" columnsM="1" items="{ProductDetail>/Product}"> 
+			<f:content>
+				<Label text="{i18n>PRODUCT_NAME_LABEL}" />
+				<Text text="{ProductDetail>PRODNAME}" />
+				<Label text="{i18n>PRODUCT_DESC_LABEL}" />
+				<Text text="{ProductDetail>PRODDESC}" />
+				
+			</f:content>
+		</f:SimpleForm>
+
+
+		<!-- Detail fragments -->
+		<IconTabBar select="onDetailSelect" id="idIconTabBar">
+			<items>
+				<IconTabFilter key="productDetail" text="{i18n>PRODUCT_SPECS_LABEL}"
+					icon="sap-icon://hint">
+					<content>
+
+						<f:SimpleForm id="specification_form" minWidth="1024" title="Product Specifications"
+							labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0"
+							columnsL="2" columnsM="2" items="{ProductDetail_tab>/Product}">
+							<Label text="{i18n>PRODUCT_ID_LABEL}" />
+							<Text text="{ProductDetail_tab>PRODUCTID}" />
+							
+							<Label text="{i18n>PRODUCT_DESC_LABEL}" />
+							<Text text="{ProductDetail_tab>PRODDESC}" />
+							<Label text="{i18n>PRODUCT_CATEGORY_LABEL}" />
+							<Text text="{ProductDetail_tab>CATEGORY}" />
+							
+							<Label text="{i18n>PRODUCT_PRICE_LABEL}" />
+							<Text text="{ProductDetail_tab>UNITPRICE} INR" />
+							
+							<Label text="{i18n>PRODUCT_UNITS_IN_STOCK_LABEL}" />
+							<Text text="{ProductDetail_tab>UNITSINSTOCK}" />
+							
+							<Label text="{i18n>PRODUCT_STATUS_LABEL}" />
+							<Text text="{path: 'ProductDetail_tab>AVAILABLE', formatter: 
+						'com.sap.shoppingcart.util.Formatter.statusProductAvailabilityText'}"
+						state="{path: 'ProductDetail_tab>AVAILABLE', formatter: 
+						'com.sap.shoppingcart.util.Formatter.statusProductAvailabilityState'}"
+							  />
+						</f:SimpleForm>
+
+					</content>
+				</IconTabFilter>
+				<IconTabFilter key="supplier" text="{i18n>PRODUCT_SUPPLIER_LABEL}"
+					icon="sap-icon://supplier">
+					<content>
+
+						<f:SimpleForm id="supplier_form" minWidth="1024" title="Supplier Details"
+							labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0"
+							columnsL="2" columnsM="2" items="{SupplierDetail>/Supplier}">
+							<Label text="{i18n>SUPPLIER_NAME_LABEL}" />
+							<Text text="{SupplierDetail>COMPANYNAME}" />
+							<Label text="{i18n>REGISTER_ADDRESS_LABEL}" />
+							<Text text="{SupplierDetail>STREEET1} , {SupplierDetail>STREET2} "/>
+							<Label text="" />
+							<Text text="{SupplierDetail>CITY} , {SupplierDetail>STATE} " />
+							<Label text="" />
+							<Text text="{SupplierDetail>COUNTRY} - {SupplierDetail>POSTALCODE} "/>
+							
+						</f:SimpleForm>
+					</content>
+				</IconTabFilter>
+			</items>
+		</IconTabBar>
+
+
+	</Page>
+</core:View>
