@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Copyright (C) 
+	2009-2014 SAP AG or an SAP affiliate company. All rights reserved --><!-- Copyright (C) 
+	2009-2013 SAP AG or an SAP affiliate company. All rights reserved -->
+<sap.ui.core:View xmlns:sap.ui.core="sap.ui.core"
+	xmlns="sap.m" xmlns:sap.me="sap.me" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns:sap.ui.layout.form="sap.ui.layout.form" controllerName="com.peol.view.initial"
+	xmlns:html="http://www.w3.org/1999/xhtml" id="S1"><!--Copied from source -->
+	<html:style>
+		.sapUIMeLegendLine {
+		height: 2.5rem!important;
+		}
+		.sapUIMeCalendarLegendLabels {
+		margin-top: 5%;
+		}
+		.checkBox{
+		margin-bottom: -10%;
+		}
+		.sapMSlt {
+		border: 1px solid
+		#bfbfbf!important;
+		}
+		.select{
+		margin-left: 25%;
+		}
+		.dob{	
+			height: 2.5rem;
+			padding: 0 0.40rem!important;
+			margin: 0.25rem 0;
+		}
+		.sapUiTf{
+		font-size: 0.875rem!important;
+		}
+	</html:style>
+	<Page id="S1_page" title="{i18n>LR_CREATE_LEAVE_TILE}"
+		showNavButton="true" navButtonTap="goBack">
+		<headerContent>
+			<Button text="{i18n>LOGOUT_BUTTON}" icon="sap-icon://log"
+				press="logout"></Button>
+		</headerContent>
+		<content>
+			<sap.ui.layout:Grid class="s4leaveTypeSelectorFlx"
+				id="LRS4_FLX_TOP" width="auto">
+				<sap.ui.layout:content>
+					<Input editable="false" id="startDateDisplay">
+						<layoutData>
+							<sap.ui.layout:GridData span="L4 M4 S12" />
+						</layoutData>
+					</Input>
+					<Input editable="false" id="endDateDisplay">
+						<layoutData>
+							<sap.ui.layout:GridData span="L4 M4 S12" />
+						</layoutData>
+					</Input>
+					<Input id="approvernamefield" editable="false" class="bold">
+						<layoutData>
+							<sap.ui.layout:GridData span="L4 M4 S12" />
+						</layoutData>
+					</Input>
+					<Select change="onSelectionChange" id="SLCT_LEAVETYPE"
+						width="100%" visible="false">
+						<layoutData>
+							<sap.ui.layout:GridData span="L4 M4 S12" />
+						</layoutData>
+					</Select>
+				</sap.ui.layout:content>
+			</sap.ui.layout:Grid>
+			<Input editable="false" id="staticText" value="{i18n>CALENDARHINT1}"></Input>
+			<sap.ui.layout:Grid defaultSpan="L12 M12 S12"
+				width="auto">
+				<sap.ui.layout:content>
+					<sap.ui.layout.form:Form id="LRS4_FRM_MAIN"
+						maxContainerCols="2" minWidth="1024">
+						<sap.ui.layout.form:layout>
+							<sap.ui.layout.form:ResponsiveGridLayout
+								columnsL="1" columnsM="1" emptySpanL="4" emptySpanM="4"
+								labelSpanL="3" labelSpanM="3" />
+						</sap.ui.layout.form:layout>
+						<sap.ui.layout.form:formContainers>
+							<sap.ui.layout.form:FormContainer
+								id="LRS4_FRM_CNT_CALENDAR">
+								<sap.ui.layout.form:layoutData>
+									<sap.ui.layout:ResponsiveFlowLayoutData
+										linebreak="true" weight="6" />
+								</sap.ui.layout.form:layoutData>
+								<sap.ui.layout.form:formElements>
+									<sap.ui.layout.form:FormElement
+										id="LRS4_FELEM_CALENDAR">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData />
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.me:Calendar class="s4Calendar" id="LRS4_DAT_CALENDAR"
+												design="Approval" />
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement
+										id="LRS4_FELEM_LEGEND">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData
+												linebreak="true" />
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.me:CalendarLegend class="s4LEGEND"
+												id="LRS4_LEGEND">
+												<sap.me:layoutData>
+													<sap.ui.layout:ResponsiveFlowLayoutData
+														id="LRS4_LYO_LEGEND" />
+												</sap.me:layoutData>
+											</sap.me:CalendarLegend>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+								</sap.ui.layout.form:formElements>
+							</sap.ui.layout.form:FormContainer>
+							<sap.ui.layout.form:FormContainer
+								id="LRS4_FRM_CNT_BALANCES">
+								<sap.ui.layout.form:layoutData>
+									<sap.ui.layout:ResponsiveFlowLayoutData
+										weight="3" />
+								</sap.ui.layout.form:layoutData>
+								<sap.ui.layout.form:formElements>
+									<sap.ui.layout.form:FormElement
+										id="LRS4_FELEM_BALANCES">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData />
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.ui.layout:Grid defaultSpan="L12 M12 S12"
+												width="100%">
+												<sap.ui.layout:content>
+													<!-- <sap.ui.layout:VerticalLayout class="s4BalancesFlxLeft" 
+														id="LRS4_TXT_BOOKEDDAYS" width="100%"> <BusyIndicator id="LRS1_BUSY_BOOKEDDAYS" 
+														size="1em" visible="true" /> <ObjectNumber class="s4BALANCEOBJECT" id="LRS4_TXT_BOOKED_DAYS" 
+														number="{TimeAccount>/BalanceTotalUsedQuantity}" unit="{i18n>LR_LOWERCASE_DAYS}" 
+														visible="false"> <layoutData> <FlexItemData growFactor="1" /> </layoutData> 
+														</ObjectNumber> <ObjectStatus id="LRS4_TXT_BOOKED" text="{i18n>LR_BOOKED}"> 
+														<layoutData> <FlexItemData growFactor="1" /> </layoutData> </ObjectStatus> 
+														</sap.ui.layout:VerticalLayout> -->
+													<sap.ui.layout:HorizontalLayout
+														class="s4BalancesFlxRight" id="LRS4_TXT_REMAININGDAY"
+														width="100%">
+														<BusyIndicator id="LRS1_BUSY_REMAININGDAYS"
+															size="1em" visible="true" />
+
+														<ObjectStatus id="LRS4_TXT_REMAINING" class="bold"
+															text="{i18n>LR_BALANCE_BALANCE}">
+															<layoutData>
+																<FlexItemData growFactor="1" />
+															</layoutData>
+														</ObjectStatus>
+														<ObjectNumber class="s4BALANCEOBJECT bold"
+															id="LRS4_TXT_REMAINING_DAYS" number="{TimeAccount>/BalanceAvailableQuantity}"
+															unit="{i18n>LR_LOWERCASE_DAYS}" visible="false">
+															<layoutData>
+																<FlexItemData growFactor="1" />
+															</layoutData>
+														</ObjectNumber>
+
+													</sap.ui.layout:HorizontalLayout>
+												</sap.ui.layout:content>
+											</sap.ui.layout:Grid>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement
+										id="LRS4_FELEM_NOTE">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData
+												linebreak="true" />
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.ui.layout:Grid defaultSpan="L12 M12 S12"
+												id="LRS4_NOTE" width="100%">
+												<sap.ui.layout:content>
+													<sap.ui.layout:VerticalLayout
+														class="s4TimeInputFlxStart s4TimeInputFlx" width="100%">
+														<Label id="LRS4_LBL_NOTE" text="{i18n>LR_NOTE}">
+														</Label>
+														<TextArea class="s4Notes " height="6rem" id="LRS4_TXA_NOTE"
+															width="100%" wrapping="None">
+															<layoutData>
+																<sap.ui.layout:ResponsiveFlowLayoutData
+																	linebreak="true" weight="8" />
+															</layoutData>
+														</TextArea>
+													</sap.ui.layout:VerticalLayout>
+												</sap.ui.layout:content>
+											</sap.ui.layout:Grid>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+
+									<sap.ui.layout.form:FormElement
+										id="LRS4_FELEM_HANDLING" visible="true">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData
+												linebreak="true" />
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.ui.layout:Grid width="100%">
+												<sap.ui.layout:content>
+													  <Label id="LRS4_LBL_STARTTIME" required="true" text="{i18n>view.AddInfo.CashHandling}" >
+														<layoutData>
+															<sap.ui.layout:GridData span="L12 M12 S12" />
+														</layoutData>
+													</Label>
+													<!-- <CheckBox text="{i18n>view.AddInfo.CashHandling}"
+														selected="false" id="cash">
+														<layoutData>
+															<sap.ui.layout:GridData span="L7 M8 S12" />
+														</layoutData>
+													</CheckBox> -->
+													<RadioButton groupName="salaryAdvanced" text="{i18n>LR_YES}" select="salaryAdvancedRadioClick">
+													<layoutData>
+															<sap.ui.layout:GridData span="L6" />
+														</layoutData>
+													</RadioButton>
+													<RadioButton groupName="salaryAdvanced" text="{i18n>LR_NO}" select="salaryAdvancedRadioClick">
+													<layoutData>
+															<sap.ui.layout:GridData span="L6" />
+														</layoutData>
+													</RadioButton>
+													
+													 <!-- <CheckBox text="{i18n>LR_TITLE_PETROL}" id="petrol"
+														selected="false" visible="false">
+														<layoutData>
+															<sap.ui.layout:GridData span="L6 M6 S12" />
+														</layoutData>
+													</CheckBox> -->
+													<!-- <CheckBox text="{i18n>LR_TITLE_TOOL_BOX}" id="tool_box" visible="false">
+														<layoutData>
+															<sap.ui.layout:GridData span="L6 M6 S12" />
+														</layoutData>
+													</CheckBox>
+													<CheckBox text="{i18n>view.AddInfo.Others}" id="others" visible="false">
+														<layoutData>
+															<sap.ui.layout:GridData span="L6 M6 S12" />
+														</layoutData>
+													</CheckBox>  -->
+												</sap.ui.layout:content>
+											</sap.ui.layout:Grid>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<sap.ui.layout.form:FormElement
+										id="LRS4_FELEM_CONTACT">
+										<sap.ui.layout.form:layoutData>
+											<sap.ui.layout:ResponsiveFlowLayoutData
+												linebreak="true" />
+										</sap.ui.layout.form:layoutData>
+										<sap.ui.layout.form:fields>
+											<sap.ui.layout:Grid defaultSpan="L12 M12 S12"
+												id="LRS4_EMP_GRID" width="100%">
+												<sap.ui.layout:content>
+													<sap.ui.layout:VerticalLayout
+														class="s4TimeInputFlxStart s4TimeInputFlx" width="100%">
+														<Label id="LRS4_LBL_CONTACT" text="{i18n>EMPLOYEE_CONTACT_LEAVE_TITLE}">
+															<layoutData>
+																<sap.ui.layout:ResponsiveFlowLayoutData
+																	linebreak="true" />
+															</layoutData>
+														</Label>
+														<Input type="Tel" class="s4Notes " id="LRS4_TXA_CONTACT_NO"
+															width="100%" wrapping="None" placeholder="{i18n>LR_TITLE_CONTACT}"
+															valueStateText="{i18n>LR_ERROR_CONTACT}">
+															<layoutData>
+																<sap.ui.layout:ResponsiveFlowLayoutData
+																	linebreak="true" weight="8" />
+															</layoutData>
+														</Input>
+														<Input type="Email" class="s4Notes " id="LRS4_TXA_ALT_CONTACT_NO"
+															width="100%" wrapping="None" placeholder="{i18n>LR_TITLE_EMAIL}"
+															valueStateText="{i18n>LR_ERROR_EMAIL}">
+															<layoutData>
+																<sap.ui.layout:ResponsiveFlowLayoutData
+																	linebreak="true" weight="8" />
+															</layoutData>
+														</Input>
+													</sap.ui.layout:VerticalLayout>
+												</sap.ui.layout:content>
+											</sap.ui.layout:Grid>
+										</sap.ui.layout.form:fields>
+									</sap.ui.layout.form:FormElement>
+									<!-- extension point for additional fields -->
+									<sap.ui.core:ExtensionPoint name="extS1Field" />
+								</sap.ui.layout.form:formElements>
+							</sap.ui.layout.form:FormContainer>
+						</sap.ui.layout.form:formContainers>
+						<sap.ui.layout.form:layout>
+							<sap.ui.layout.form:ResponsiveLayout
+								id="LRS4_FRM_MAIN_LAYOUT" />
+						</sap.ui.layout.form:layout>
+					</sap.ui.layout.form:Form>
+				</sap.ui.layout:content>
+			</sap.ui.layout:Grid>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>LR_SEND}" id="LRS4_BTN_SEND" press="onSend"
+						visible="false" />
+					<Button id="resumptionButton" text="{i18n>LR_RESUMPTION}" press="showResumptionDate"
+						visible="false" />
+					<Button text="{i18n>LR_RESET}" id="LRS4_BTN_CANCEL" press="onCancelClick" />
+					<Button text="Entitlement" visible="false" />
+					<Button text="{i18n>LR_TITLE_HISTORY_VIEW}" press="pressedHistory" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</sap.ui.core:View>

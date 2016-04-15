@@ -1,0 +1,12 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="com.peol.view.empty" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="" showNavButton="{device>/isPhone}" showHeader="true" navButtonPress="navButtonPress">
+	
+	    <headerContent>
+			<Button text="{i18n>LOGOUT_BUTTON}" icon="sap-icon://log" press="logout"></Button>
+		</headerContent> 
+		<content>
+	
+		</content> 
+	</Page>
+</mvc:View>

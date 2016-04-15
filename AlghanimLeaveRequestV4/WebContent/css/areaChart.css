@@ -1,0 +1,160 @@
+.sapUiCockpitTrendKpiTile .measureChart {
+	position: absolute;
+	bottom: 0rem;
+	margin: 0rem;
+	width: 8.875rem
+}
+
+.sapUiCockpitTrendKpiTile .measureChart .dummyTrendImage {
+	font-family: SAP-icons;
+	font-size: 6rem;
+	height: 6.625rem;
+	width: 100%;
+	text-align: center
+}
+
+.sapUiCockpitTrendKpiTile .measureChart .sapUiCockpitAreaChart {
+	width: 8.875rem;
+	height: 4.875rem;
+	margin-bottom: 0rem
+}
+
+.sapUiCockpitTrendKpiTile .measureChart .sapUiCockpitAreaChart .v-m-root
+	{
+	width: 8.875rem;
+	height: 5.175rem
+}
+
+.sapUiCockpitTrendKpiTile .areaChartHTMLPlaceHolder {
+	height: 4.875rem;
+	width: 11.875rem
+}
+
+.sapUiCockpitTrendKpiTile .minMaxMeasureValueWrapper .measure {
+	font-size: 0.875rem;
+	line-height: 1rem;
+	word-wrap: normal;
+	overflow: hidden;
+	width: 50%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-break: normal
+}
+
+.sapUiCockpitTrendKpiTile .minMaxDimensionValueWrapper .dimension {
+	font-size: 0.875rem;
+	line-height: 1rem;
+	word-wrap: normal;
+	overflow: hidden;
+	width: 50%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-break: normal
+}
+
+.sapUiCockpitTrendKpiTile .minMaxMeasureValueWrapper .minValue {
+	float: left
+}
+
+.sapUiCockpitTrendKpiTile .minMaxMeasureValueWrapper .maxValue {
+	float: right;
+	text-align: right !important
+}
+
+.sapUiCockpitTrendKpiTile .minMaxDimensionValueWrapper .minValue {
+	float: left
+}
+
+.sapUiCockpitTrendKpiTile .minMaxDimensionValueWrapper .maxValue {
+	float: right;
+	text-align: right !important
+}
+
+.sapUiCockpitTrendKpiTile .minMaxMeasureValueWrapper {
+	
+}
+
+.sapUiCockpitTrendKpiTile .minMaxDimensionValueWrapper {
+	
+}
+
+@media screen and (min-width:1024px) and (max-width:1279px) {
+	.sapUiCockpitTrendKpiTile .measureChart .sapUiCockpitAreaChart .v-m-root
+		{
+		width: 10.375rem;
+		height: 4.175rem
+	}
+	.sapUiCockpitTrendKpiTile .measureChart {
+		position: absolute;
+		bottom: 0.562rem;
+		margin: 0rem 0.625rem;
+		width: 10.375rem
+	}
+	.sapUiCockpitTrendKpiTile .measureChart .dummyTrendImage {
+		font-family: SAP-icons;
+		font-size: 5rem;
+		height: 5.500rem;
+		width: 100%;
+		text-align: center
+	}
+	.areaChartSvg {
+		width: 10.375rem;
+		height: 3.875rem
+	}
+	.sapUiCockpitTrendKpiTile .measureChart .sapUiCockpitAreaChart {
+		width: 10.375rem;
+		height: 3.875rem;
+		margin-bottom: 0.3rem
+	}
+	.sapUiCockpitTrendKpiTile .measureChart .areaChartHTMLPlaceHolder {
+		height: 3.875rem;
+		width: 10.375rem
+	}
+	.sapUiCockpitTrendKpiTile .minMaxMeasureValueWrapper .measure {
+		font-size: 0.75rem;
+		line-height: 0.875rem
+	}
+	.sapUiCockpitTrendKpiTile .minMaxDimensionValueWrapper .dimension {
+		font-size: 0.75rem;
+		line-height: 0.875rem
+	}
+}
+
+@media screen and (max-width:1023px) {
+	.sapUiCockpitTrendKpiTile .measureChart {
+		position: absolute;
+		width: 8rem;
+		bottom: 0.562rem;
+		margin: 0rem 0.625rem
+	}
+	.sapUiCockpitTrendKpiTile .measureChart .dummyTrendImage {
+		font-family: SAP-icons;
+		font-size: 4rem;
+		height: 4.875rem;
+		width: 100%;
+		text-align: center
+	}
+	.sapUiCockpitTrendKpiTile .measureChart .sapUiCockpitAreaChart .v-m-root
+		{
+		width: 8rem;
+		height: 3.750rem
+	}
+	.sapUiCockpitTrendKpiTile .measureChart .sapUiCockpitAreaChart {
+		width: 8rem;
+		height: 3.250rem;
+		margin-bottom: 0.1rem;
+		margin-top: -0.1rem
+	}
+	.sapUiCockpitTrendKpiTile .measureChart .areaChartHTMLPlaceHolder {
+		width: 8rem;
+		height: 3.250rem
+	}
+	.sapUiCockpitTrendKpiTile .minMaxMeasureValueWrapper .measure {
+		font-size: 0.625rem;
+		line-height: 0.75rem
+	}
+	.sapUiCockpitTrendKpiTile .minMaxDimensionValueWrapper .dimension {
+		font-size: 0.625rem;
+		line-height: 0.75rem
+	}
+}

@@ -1,0 +1,116 @@
+<mvc:View height="100%" controllerName="com.peol.view.Tile"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout" xmlns:tile="com.peol.customtile.common.controls.tile"
+	xmlns:suite="sap.suite.ui.commons" xmlns:core="sap.ui.core" xmlns:form="sap.ui.commons.form"
+	xmlns:f="sap.ui.layout.form" xmlns="sap.m">
+	<html:style>
+		.sapUiFormResLayout>div {
+		background-color: transparent;
+		}
+		.sapUiForm .sapUiFormTitle {
+		padding-left: 42px;
+		}
+		.tile{
+		padding-top:
+		31px;
+		}
+		.sapMPanelContent {
+		padding: 0rem 1rem 1rem 1rem;
+		}
+		.profileImage{
+		float:right;
+		}
+		.welcomeText{
+		font-size:20px;
+		}
+		.padtop10
+		{
+		padding-top:10px!important;
+		}
+	</html:style>
+
+	<Page showHeader="true" id="Home" title="{i18n>APP_TITLE}">
+		<headerContent>
+			<Button text="{i18n>LOGOUT_BUTTON}" icon="sap-icon://log"
+				press="logout"></Button>
+		</headerContent>
+		<content>
+			<!-- <Bar id="welcomeBar"> <contentLeft> <Label id="Ename" design="Bold"></Label> 
+				</contentLeft> <contentRight> <Image src="proxy/http/ai-eccpr-sand.alghanim.com:8013/sap/opu/odata/sap/ZLEAVE_APPROVAL_SRV_01/EmployeeCollection(%275178%27)/$value" 
+				height="88px"/> </contentRight> </Bar> -->
+			<!-- <f:SimpleForm id="profileform" maxContainerCols="3"> <f:content> 
+				<core:Title text="" id="Ename"></core:Title> <core:Title text="{EMPLOYEE_ID}"></core:Title> 
+				<core:Title text=""></core:Title> <Label></Label> <Image id="profileimage" 
+				class="profileImage" src="" height="30%" width="30%" textAlign="Right"/> 
+				</f:content> </f:SimpleForm> -->
+
+
+			<!-- <Panel width="100%" headerText=""> -->
+			<layout:Grid width="auto" class="padtop10" position="Center">
+				<layout:content>
+					<!-- <Label> <layoutData> <layout:GridData span="L6 M1 S12" /> </layoutData> 
+						</Label> -->
+					<Label text="" design="Bold" id="Ename" class="welcomeText">
+						<layoutData>
+							<layout:GridData span="L6 M6 S6" />
+						</layoutData>
+					</Label>
+
+					<Image id="profileimage" class="profileImage" src="" height="30%"
+						width="15%" textAlign="Right">
+						<layoutData>
+							<layout:GridData span="L6 M6 S6" />
+						</layoutData>
+					</Image>
+
+				</layout:content>
+			</layout:Grid>
+			<!-- </Panel> -->
+
+
+
+
+
+
+
+
+			<VBox>
+				<Panel>
+					<Toolbar>
+						<content>
+							<Label text="{i18n>EMPLOYEE_HEADER}" design="Bold"></Label>
+						</content>
+					</Toolbar>
+					<suite:InfoTile id="leaveRequest" title="{i18n>LR_TITLE_HOME_VIEW}"
+						size="L" state="Loaded" class="tile" press="requestTilePressed">
+						<suite:content>
+							<core:Icon src="sap-icon://add" size="2.35rem" color="#007CC0"></core:Icon>
+						</suite:content>
+					</suite:InfoTile>
+				</Panel>
+				<Panel id="ManangerSection">
+					<Toolbar>
+						<content>
+							<Label text="{i18n>MANAGER_HEADER}" design="Bold"></Label>
+						</content>
+					</Toolbar>
+					<tile:NumericKpiTile id="costOfDelvTile" title="{i18n>app.Identity}"
+						size="L" state="Loading" value="0" trendImage="sap-icon://approvals"
+						unitOfMeasure="" press="approveTilePressed">
+						
+					</tile:NumericKpiTile>
+					<tile:NumericKpiTile id="leaveRequestResump"
+						title="{i18n>APPROVE_RESUMPTION}" size="L" image="sap-icon://approvals"
+						unitOfMeasure="" state="Loading" press="resumptionTilePressed"
+						value="0">
+					</tile:NumericKpiTile>
+				</Panel>
+				<!-- <StandardTile icon="sap-icon://paid-leave" type="Monitor" number="" 
+					numberUnit="" title="{i18n>LEAVE_REQ_TILE}" info="" infoState="Success" press="requestTilePressed" 
+					/> <StandardTile icon="sap-icon://paid-leave" type="Monitor" number="" numberUnit="" 
+					title="{i18n>LEAVE_APPROVE_TILE}" info="" infoState="Success" press="approveTilePressed" 
+					/> -->
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

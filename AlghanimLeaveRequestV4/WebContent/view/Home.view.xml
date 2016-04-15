@@ -1,0 +1,84 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:comp="sap.suite.ui.commons" xmlns="sap.m" controllerName="com.peol.view.Home"
+	xmlns:common="sap.ui.commons" xmlns:matlayout="sap.ui.commons.layout"
+	xmlns:layout="sap.ui.layout" xmlns:lay="sap.ui.commons.layout"
+	xmlns:tile="views.common.controls.tile" xmlns:type="sap.viz.ui5.types"
+	xmlns:viz="sap.viz.ui5" xmlns:flay="sap.ui.layout.form" xmlns:form="sap.ui.commons.form"
+	xmlns:suite="sap.suite.ui.commons" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="true" id="Home" title="{i18n>APP_TITLE}">
+		<headerContent>
+			<Button id="langBtn" text="" press="changeLanguage" />
+		</headerContent>
+		<content>
+
+			<Panel width="100%" headerText="">
+				<layout:Grid width="auto" position="Center">
+					<layout:content>
+						<Label>
+							<layoutData>
+								<layout:GridData span="L3 M1 S12" />
+							</layoutData>
+						</Label>
+						<RadioButton groupName="GroupA" text="{i18n>AD_LABEL}"
+							select="changeSelect1" id="ad">
+							<layoutData>
+								<layout:GridData span="L4 M8 S12" />
+							</layoutData>
+						</RadioButton>
+
+						<RadioButton groupName="GroupA" text="{i18n>CIVIL_LABEL}"
+							select="changeSelect2" id="civil" selected="true">
+							<layoutData>
+								<layout:GridData span="L5 M3 S12" />
+							</layoutData>
+						</RadioButton>
+
+					</layout:content>
+				</layout:Grid>
+			</Panel>
+
+			<!--  <Panel width="100%" headerText=""> <HBox justifyContent="Center" 
+				alignItems="Center"> <RadioButton groupName="GroupA" text="{i18n>AD_LABEL}" 
+				select="changeSelect1" id="ad"/> <RadioButton groupName="GroupA" text="{i18n>CIVIL_LABEL}" 
+				select="changeSelect2" id="civil" selected="true" /> </HBox> </Panel> 
+ -->
+			<Panel width="100%" headerText="" visible="false" id="adPanel">
+				<form:SimpleForm layout="ResponsiveLayout"
+					maxContainerCols="1" editable="true">
+					<core:Title text=" " />
+					<Label text="{i18n>USERNAME_TITLE}" design="Bold" required="true"></Label>
+					<Input type="Text" id="uname" placeholder="{i18n>USERNAME_PLACEHOLDER}"
+						valueStateText="{i18n>USERNAME_PLACEHOLDER}"></Input>
+					<Label text="{i18n>PASSWORD_TITLE}" design="Bold" required="true"></Label>
+					<Input type="Password" id="password" placeholder="{i18n>PASSWORD_PLACEHOLDER}"
+						valueStateText="{i18n>PASSWORD_PLACEHOLDER}"></Input>
+					<Label text=""></Label>
+					<Button text="{i18n>LOGIN_BUTTON}" press="handleLogin" id="loginAsAD" />
+				</form:SimpleForm>
+			</Panel>
+			<Panel width="100%" headerText="" visible="true" id="civilPanel">
+				<form:SimpleForm layout="ResponsiveLayout"
+					maxContainerCols="1" editable="true">
+					<core:Title text=" " />
+					<Label text="{i18n>PF_LABEL}" design="Bold" required="true"></Label>
+					<Input type="Text" id="pfNature" placeholder="{i18n>PF_PLACEHOLDER}"
+						valueStateText="{i18n>PF_PLACEHOLDER}"></Input>
+					<Label text="{i18n>CIVIL_LABEL}" design="Bold" required="true"></Label>
+					<Input type="Text" id="civilId" placeholder="{i18n>CIVIL_PLACEHOLDER}"
+						valueStateText="{i18n>CIVIL_PLACEHOLDER}"></Input>
+					<Label text="{i18n>DOB_LABEL}" design="Bold" required="true"></Label>
+					<!-- <DateTimeInput type="Date" displayFormat="dd/mm/yyyy"
+						placeholder="{i18n>DOB_PLACEHOLDER}" id="dob" valueStateText="{i18n>DOB_PLACEHOLDER}" /> -->
+					<!-- <common:DatePicker class="dob" placeholder="{i18n>DOB_PLACEHOLDER}" id="dob" valueStateText="{i18n>DOB_PLACEHOLDER}">
+					</common:DatePicker>-->
+					<DatePicker placeholder="{i18n>DOB_PLACEHOLDER}" id="dob" change="applyDate" valueStateText="{i18n>DOB_PLACEHOLDER}" 
+						valueFormat="yyyy-MM-dd" displayFormat="medium">
+					</DatePicker>
+					<Label text=""></Label>
+					<Button text="{i18n>LOGIN_BUTTON}" press="handleLogin" id="loginAsCivil" />
+				</form:SimpleForm>
+			</Panel>
+
+		</content>
+	</Page>
+</core:View>

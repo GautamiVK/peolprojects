@@ -1,0 +1,11 @@
+<core:View controllerName="com.peol.view.TeamCalendar" xmlns:me="sap.me"
+	xmlns="sap.m" xmlns:shellfooter="sap.ushell.ui.footerbar" xmlns:core="sap.ui.core">
+	<Page id="overlapPage" showNavButton="{device>/isPhone}" navButtonPress="navButtonPress">
+		<VBox id="overlapCalendar">
+			<me:OverlapCalendar changeDate="_onChangeDate" endOfData="_onEndOfData" id="OverlapCalendar2" startDate="2013-04-09T00:00:00" weeksPerRow="2">
+			</me:OverlapCalendar>
+			<me:CalendarLegend id="CalenderLegend" legendWidth="18em">
+			</me:CalendarLegend>
+		</VBox>
+	</Page>
+</core:View>

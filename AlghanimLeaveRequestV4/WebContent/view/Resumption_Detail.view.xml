@@ -1,0 +1,329 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="com.peol.view.Resumption_Detail"
+	xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.commons.form" xmlns:f="sap.ui.layout.form"
+	xmlns:sap.ui.core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page class="sapUiFioriObjectPage" showNavButton="{device>/isPhone}" navButtonPress="navButtonPress">
+		<headerContent>
+			<Button text="{i18n>LOGOUT_BUTTON}" icon="sap-icon://log"
+				press="logout"></Button>
+		</headerContent>
+		<content>
+			<ObjectHeader id="LRS6B_HEADER" introActive="true"
+				number="{AbsenceDays}" numberUnit="{i18n>LR_DAYS}" titleActive="false"
+				iconActive="false" title="{RequesterName}">
+				<attributes>
+					<!-- <ObjectAttribute id="LRS6B_LBL_ORIGINAL_DATE" text="{i18n>LR_OLD_VERSION}" 
+						active="false"></ObjectAttribute> -->
+					<ObjectAttribute id="LRS6B_HEADER_REQ_NO" active="false"
+						text="{RequesterNumber}"></ObjectAttribute>
+					<!-- <ObjectAttribute id="LRS6B_HEADER_START_DATE" active="false" text="Start 
+						Date: { path: 'StartDate', formatter: 'com.peol.util.Formatter.dateFormate' 
+						}"> </ObjectAttribute> <ObjectAttribute id="LRS6B_HEADER_END_DATE" active="false" 
+						text="End Date: { path: 'EndDate', formatter: 'com.peol.util.Formatter.dateFormate' 
+						}"></ObjectAttribute> -->
+					<!-- <ObjectAttribute id="LRS6B_LBL_CHANGED_DATE" text="{i18n>LR_NEW_VERSION}" 
+						active="false"></ObjectAttribute> -->
+					<ObjectAttribute id="LRS6B_NEW_HEADER_START_DATE"
+						active="false"></ObjectAttribute>
+					<ObjectAttribute id="LRS6B_NEW_HEADER_END_DATE"
+						active="false"></ObjectAttribute>
+				</attributes>
+				<!-- <firstStatus> <ObjectStatus id="LRS6B_HEADER_STATUS" text="days"></ObjectStatus> 
+					</firstStatus> -->
+				<secondStatus>
+					<ObjectStatus id="LRS6B_HEADER_STATUS2"
+						text="{path:'ChangeDate',
+						formatter: 'com.peol.util.Formatter.getDifferenceBetweenToday'}"></ObjectStatus>
+				</secondStatus>
+				<!-- extension point for additional Header Field -->
+				<sap.ui.core:ExtensionPoint name="extS6BHeaderField"></sap.ui.core:ExtensionPoint>
+			</ObjectHeader>	
+
+			<ObjectHeader id="LRS6B_HEADER_RES_DATE" introActive="true"
+				titleActive="false" iconActive="false"
+				title="{i18n>LR_REQ_RES_DATE} : {path: 'ResDate',
+					formatter: 'com.peol.util.Formatter.dateFormate'}"></ObjectHeader>
+
+			<f:SimpleForm id="SimpleFormDisplay480" minWidth="1024"
+				maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+				labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0"
+				columnsL="2" columnsM="2" visible="false">
+				<f:content>
+					<core:Title text="{path : 'LeaveTypeDesc'}" level="H3" />
+					<Label text="{i18n>LABEL_START_DATE1}" />
+					<Text
+						text="{path: 'StartDate', formatter: 'com.peol.util.Formatter.dateFormate'}" />
+					<Label text="{i18n>LABEL_END_DATE1}" />
+					<Text
+						text="{path: 'EndDate', formatter: 'com.peol.util.Formatter.dateFormate'}" />
+
+					<core:Title text="{path : 'LeaveTypeDesc1'}" level="H3" />
+					<Label text="{i18n>LABEL_START_DATE1}"
+						visible="{path:'LeaveTypeDesc1',formatter:'com.peol.util.Formatter.displayOptionalLeave'}" />
+					<Text
+						text="{path: 'StartDate1', formatter: 'com.peol.util.Formatter.dateFormate'}"
+						visible="{path:'LeaveTypeDesc1',formatter:'com.peol.util.Formatter.displayOptionalLeave'}" />
+					<Label text="{i18n>LABEL_END_DATE1}"
+						visible="{path:'LeaveTypeDesc1',formatter:'com.peol.util.Formatter.displayOptionalLeave'}" />
+					<Text
+						text="{path: 'EndDate1', formatter: 'com.peol.util.Formatter.dateFormate'}"
+						visible="{path:'LeaveTypeDesc1',formatter:'com.peol.util.Formatter.displayOptionalLeave'}" />
+				</f:content>
+			</f:SimpleForm>
+
+			<IconTabBar id="LRAtc" select="_handleTabSelect">
+				<items>
+					<IconTabFilter icon="sap-icon://hint" iconColor="Default"
+						key="contentInfo">
+						<content>
+							<form:Form id="myForm">
+								<form:layout>
+									<form:ResponsiveLayout id="informationLayout" />
+								</form:layout>
+								<form:formContainers>
+									<form:FormContainer id="formContainer">
+										<form:layoutData>
+											<layout:ResponsiveFlowLayoutData
+												linebreak="true" margin="false">
+											</layout:ResponsiveFlowLayoutData>
+										</form:layoutData>
+										<form:formElements>
+											<!-- <form:FormElement> <form:layoutData> <layout:ResponsiveFlowLayoutData 
+												linebreak="true" margin="false"> </layout:ResponsiveFlowLayoutData> </form:layoutData> 
+												<form:label> <Label id="LeaveType" text="{i18n&gt;view.AddInfo.LeaveType}"> 
+												<layoutData> <layout:ResponsiveFlowLayoutData min-width="192" weight="3"> 
+												</layout:ResponsiveFlowLayoutData> </layoutData> </Label> </form:label> <form:fields> 
+												<Text id="formLeaveTypeDesc" text="{LeaveTypeDesc}"> <layoutData> <layout:ResponsiveFlowLayoutData 
+												weight="5"> </layout:ResponsiveFlowLayoutData> </layoutData> </Text> </form:fields> 
+												</form:FormElement> -->
+											<!-- <form:FormElement visible="true"> <form:layoutData> <layout:ResponsiveFlowLayoutData 
+												linebreak="true" margin="false"> </layout:ResponsiveFlowLayoutData> </form:layoutData> 
+												<form:label> <Label id="CurrentBalanceLabel" text="{i18n&gt;view.AddInfo.CurrentBalance}"> 
+												<layoutData> <layout:ResponsiveFlowLayoutData min-width="192" weight="3"> 
+												</layout:ResponsiveFlowLayoutData> </layoutData> </Label> </form:label> <form:fields> 
+												<Text id="CurrentBalance" text="{CurrentBalance}"> <layoutData> <layout:ResponsiveFlowLayoutData 
+												weight="5"> </layout:ResponsiveFlowLayoutData> </layoutData> </Text> </form:fields> 
+												</form:FormElement> -->
+											<form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData
+														linebreak="true" margin="false">
+													</layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label id="RequestedLabel" text="{i18n&gt;view.AddInfo.Requested}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																min-width="192" weight="3">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Label>
+												</form:label>
+												<form:fields>
+													<Text id="Requested" text="{AbsenceDays}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																weight="5">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Text>
+												</form:fields>
+											</form:FormElement>
+
+
+											<!-- <form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData
+														linebreak="true" margin="false">
+													</layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label id="PertrolLabel" text="{i18n&gt;view.AddInfo.Petrol}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																min-width="192" weight="3">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Label>
+												</form:label>
+												<form:fields>
+													<Text id="Petrol"
+														text="{path:'PetrolCard', formatter:'com.peol.utils.Conversions.booleanYesNo'}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																weight="5">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Text>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData
+														linebreak="true" margin="false">
+													</layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label id="ToolLabel" text="{i18n&gt;view.AddInfo.Tool}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																min-width="192" weight="3">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Label>
+												</form:label>
+												<form:fields>
+													<Text id="Tool"
+														text="{parts:[{path:'ToolBox'}], 
+												formatter:'com.peol.utils.Conversions.booleanYesNo'}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																weight="5">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Text>
+												</form:fields>
+											</form:FormElement> -->
+											<form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData
+														linebreak="true" margin="false">
+													</layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label id="CashLabel" text="{i18n&gt;view.AddInfo.CashHandling}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																min-width="192" weight="3">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Label>
+												</form:label>
+												<form:fields>
+													<Text id="Cash"
+														text="{parts:[{path:'CashHandling'}], formatter:'com.peol.utils.Conversions.booleanYesNo'}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																weight="5">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Text>
+												</form:fields>
+											</form:FormElement>
+											<!-- <form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData
+														linebreak="true" margin="false">
+													</layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label id="OthersLabel" text="{i18n&gt;view.AddInfo.Others}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																min-width="192" weight="3">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Label>
+												</form:label>
+												<form:fields>
+													<Text id="Others"
+														text="{parts:[{path:'Others'}], 
+												formatter:'com.peol.utils.Conversions.booleanYesNo'}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																weight="5">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Text>
+												</form:fields>
+											</form:FormElement> -->
+
+
+
+											<form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData
+														linebreak="true" margin="false">
+													</layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label id="ContactLabel" text="{i18n>LR_TITLE_CONTACT}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																min-width="192" weight="3">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Label>
+												</form:label>
+												<form:fields>
+													<Text id="Contact" text="{Contact1}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																weight="5">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Text>
+												</form:fields>
+											</form:FormElement>
+											<form:FormElement>
+												<form:layoutData>
+													<layout:ResponsiveFlowLayoutData
+														linebreak="true" margin="false">
+													</layout:ResponsiveFlowLayoutData>
+												</form:layoutData>
+												<form:label>
+													<Label id="EmailLabel" text="{i18n>LR_TITLE_EMAIL}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																min-width="192" weight="3">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Label>
+												</form:label>
+												<form:fields>
+													<Text id="Email" text="{Contact2}">
+														<layoutData>
+															<layout:ResponsiveFlowLayoutData
+																weight="5">
+															</layout:ResponsiveFlowLayoutData>
+														</layoutData>
+													</Text>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+									</form:FormContainer>
+								</form:formContainers>
+							</form:Form>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter count="{NotesCounter}" icon="sap-icon://notes"
+						iconColor="Default" key="contentNotes"
+						visible="{parts:[{path:'NotesCounter'}], formatter:'com.peol.utils.Conversions.formatterNotesVisible'}">
+						<VBox alignItems="Start" id="NotesArea">
+							<List headerDesign="Plain" id="NotesList" inset="false"
+								items="{notes&gt;/Notes/results}" mode="SingleSelectMaster"
+								showSeparators="None">
+								<FeedListItem id="feed" sender="{notes&gt;Name}"
+									senderPress="_handleSenderPress" text="{notes&gt;NoticeText}"
+									timestamp="{parts:[{path:'notes&gt;ModTimestamp'}], formatter:'com.peol.utils.Conversions.formatterTimestampToDate'}">
+								</FeedListItem>
+							</List>
+						</VBox>
+					</IconTabFilter>
+					<core:ExtensionPoint name="extS3Tab" />
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<ToolbarSpacer />
+					<!-- <Button text="Team Calendar" type="Default" press="_handleTeamCalendar" 
+						/> -->
+					<Button text="{i18n>XBUT_APPROVE}" type="Accept" press="_handleApprove" />
+					<Button text="{i18n>XBUT_REJECT}" type="Reject" press="_handleReject" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

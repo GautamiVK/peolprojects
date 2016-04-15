@@ -1,0 +1,35 @@
+<mvc:View controllerName="com.peol.view.Resumption_Master"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:shellfooter="sap.ushell.ui.footerbar"
+	xmlns:core="sap.ui.core">
+	<Page>
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Button icon="sap-icon://nav-back" press="goBack" />
+				</contentLeft>
+				<contentMiddle>
+					<Label text="{i18n>LR_TITLE_RESAPP_VIEW}"></Label>
+					<Label id="count" text=""></Label>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<subHeader>
+			<Bar>
+				<contentLeft>
+					<SearchField placeholder="{i18n>LR_SEARCH}" liveChange="handleSearch">
+					</SearchField>
+					<!-- <Button id="synchronize" icon="sap-icon://synchronize" press=""></Button> -->
+				</contentLeft>
+				<contentRight>
+
+				</contentRight>
+			</Bar>
+		</subHeader>
+		<List id="list" select="handleListSelect"></List>
+		<footer>
+			<Bar>
+			</Bar>
+		</footer>
+	</Page>
+
+</mvc:View>

@@ -1,0 +1,442 @@
+b.tileContainerText {
+	font-weight: bold;
+	font-size: 22px !important;
+	margin-left: 2.6rem;
+	margin-top: 1rem;
+	margin-bottom: .5rem;
+}
+
+/* for graph titles*/
+.v-title {
+	fill: #000000;
+	font-family: -webkit-body;
+}
+
+/* for padding of select boxes*/
+.selectBox {
+	padding-left: 1em !important;
+}
+
+/* for tiles */
+.sapSuiteInfoTile:hover {
+	/* background-color: orange;*/
+	box-shadow: 0 0 4px rgba(236, 218, 218, 1);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#89CFF0),
+		to(#AEC6CF));
+	font-family: Arial, Helvetica, sans-serif;
+	display: inline-block;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	position: relative;
+	cursor: pointer;
+}
+/* for navigation buttons */
+.sapMBar-CTX .sapMBtnContent>.sapUiIcon {
+	color: #1886B7;
+}
+/* for facetfilter text */
+.sapMBar-CTX .sapMBtn {
+	color: #1886B7;
+	/* text-shadow: 0 1px 0 none; */
+}
+/* for bar text */
+.sapMBar-CTX .sapMLabel {
+	color: #386C82;
+}
+
+.sapUiMedia-Std-Tablet .sapSuiteInfoTileFtrTxt.Auto,.sapSuiteInfoTileFtrTxt.M
+	{
+	font-size: 12px !important;
+}
+/*  Arrow of icon tab bar */
+.sapMITBContentArrow {
+	background-color: #5D9FB5;
+}
+
+/* work around for a better way of selecting */
+.sapUiTableCell span[title="Manpower Costs"] {
+	text-decoration: underline;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: start;
+}
+
+.sapUiTableCell span[title^="Onsite Allowances"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title^="Sub Contracting Charges -"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title^="Onsite QPLC"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title^="Offshore salary"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title^="Offshore QPLC"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title^="Billable - Onsite % -"] {
+	/* 	text-align:center; */
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title^="Billable - Offshore % -"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title^="Bench - Onsite % -"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title^="Bench - Offshore % -"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title^="Support - Onsite % -"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title^="Support - Offshore % -"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title^="Investment - Onsite % -"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title^="Investment - Offshore % -"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title="Bench / Horizontal Loading"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title="Passthrough Expenses"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title="Cost deferrals -  Offshore"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title="Cost deferrals - Onsite"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title="Other Expenses"] {
+	text-decoration: underline;
+	text-align: start;
+	empty-cells: hide;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.sapUiTableCell span[title="Gross Margin %"] {
+	text-decoration: underline;
+	text-align: start;
+	empty-cells: hide;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.sapUiTableCell span[title="Operating Margin %"] {
+	text-decoration: underline;
+	text-align: start;
+	empty-cells: hide;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.sapUiTableCell span[title="Travel Expenses"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title="Visa Fees"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title="Communication links"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title="Transfer Expenses"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title="Domestic Travel Expenses"] {
+	padding-left: 25px;
+}
+
+.sapUiTableCell span[title="Other expenses"] {
+	padding-left: 25px;
+}
+
+/* ***************************************************************** */
+span#Home--appheader-logoText {
+	font-size: x-large;
+}
+
+.sapUiAppHdr .sapUiTv {
+	font-family: arial;
+	font-size: 24px !important;;
+	font-weight: bold;
+	line-height: 23px;
+	padding-right: 5px;
+	vertical-align: text-bottom;
+	padding-left: 10em;
+	font-size: 36px !important;
+}
+
+.sapMFlexItem>#__bar3 {
+	height: 3em;
+	line-height: 3em;
+	color: #548230;
+	background-color: rgba(234, 250, 250, 0);
+	text-shadow: 0 0.0625em 0 rgba(39, 30, 30, 1);
+	-webkit-box-shadow: inset 0 -0.0625em #dddddd;
+	box-shadow: inset 0 -0.0625em rgba(221, 221, 221, 0);
+}
+
+.topBar {
+	font-size: large;
+}
+
+.highlight {
+	background: #D9DAD5;
+	font-size: larger !important;
+	font-weight: 100 !important;
+}
+
+.sapMListTbl .sapMText,.sapMListTbl .sapMLabel {
+	padding-top: 1px;
+	font-size: 12px;
+	color: #352B2B;
+	font-weight: normal;
+}
+
+g.v-datashapesgroup g.v-stackedcolumn {
+	cursor: pointer;
+}
+
+g.v-datashapesgroup g.v-column {
+	cursor: pointer;
+}
+
+thead {
+	background: #3b679e; /* Old browsers */
+	background: -moz-linear-gradient(top, #3b679e 0%, #2b88d9 65%);
+	/* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3b679e),
+		color-stop(65%, #2b88d9)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #3b679e 0%, #2b88d9 65%);
+	/* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #3b679e 0%, #2b88d9 65%);
+	/* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #3b679e 0%, #2b88d9 65%);
+	/* IE10+ */
+	background: linear-gradient(to bottom, #3b679e 0%, #2b88d9 65%);
+	/* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e',
+		endColorstr='#2b88d9', GradientType=0); /* IE6-9 */
+}
+
+.sapSuiteInfoTile {
+	margin-right: 1.6rem;
+	margin-top: 1rem;
+}
+
+.sapSuiteMacChart {
+	width: 1px !important;
+}
+
+.tileContainerText {
+	font-weight: bold;
+	font-size: 22px !important;
+	margin-left: 2.6rem;
+	margin-top: 1rem;
+	margin-bottom: .5rem;
+}
+
+.sapSuiteInfoTileTitleTxt>.sapMText {
+	max-height: none !important;
+}
+
+.sapSuiteInfoTile {
+	margin-left: 2.6rem;
+}
+
+.sapSuiteInfoTileTitleTxt.L>.sapMText,.sapSuiteInfoTileTitleTxt.M>.sapMText,.sapSuiteInfoTileTitleTxt
+	{
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif !important;
+	font-size: 14px !important;
+}
+
+.sapSuiteCmpChartBarValue.Critical {
+	background-color: #D32030 !important;
+}
+
+.sapSuiteCmpChartBarValue.Neutral {
+	background-color: #808080 !important;
+}
+
+.sapSuiteCmpChartItemValue.Critical,.sapSuiteCmpChartItemScale.Critical
+	{
+	color: #D32030 !important;
+}
+
+.numericKpiTileContent.L {
+	top: 100px;
+	bottom: 12px;
+	left: 32px;
+	right: 10px;
+	position: absolute;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+.numericKpiTileContent.M {
+	top: 77px;
+	bottom: 12px;
+	left: 10px;
+	right: 5px;
+	position: absolute;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+.sapSuiteCmpTileContent.L {
+	top: 83px !important;
+	bottom: 20px !important;
+	left: 16px !important;
+	right: 16px !important;
+	font-size: 14px !important;
+}
+
+.tileValue.L,.tileValue.M {
+	font-weight: bold;
+	letter-spacing: 2px;
+	font-size: 45px;
+	padding: .2rem
+}
+
+.numericKpiTileFooter.L {
+	top: 185px;
+	bottom: 1px;
+	left: 10px;
+	right: 10px;
+	position: absolute;
+	font-family: Arial, Helvetica, sans-serif;
+	color: gray;
+	font-size: 14px;
+}
+
+.numericKpiTileFooter.M {
+	top: 138px;
+	bottom: 1px;
+	left: 10px;
+	right: 10px;
+	position: absolute;
+	font-family: Arial, Helvetica, sans-serif;
+	color: gray;
+	font-size: 14px;
+}
+
+.fontGray {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: gray;
+}
+
+td#__cell0 {
+	background-color: inherit;
+}
+
+.sapMITBContent {
+	background-color: aliceblue;
+	padding-left: 4em;
+}
+/* div#__bar1-content {
+padding-left: 4em;
+} */
+/* Rabin` css */
+.sapUiMedia-Std-Tablet .sapSuiteInfoTile.Auto,.sapSuiteInfoTile.M {
+	height: 174px;
+	width: 184px;
+	border-radius: 6px;
+	padding: 0px;
+}
+
+.lab {
+	font-size: 20px;
+	color: #30749E;
+	padding-left: 10px;
+	padding-top: 5px !important;
+}
+
+.tile {
+	padding-top: 30px !important;
+}
+
+.border {
+	border: solid 1px;
+}
+
+.text {
+	font-weight: 600 !important;
+	font-size: 14px !important;
+}
+
+.v-m-title .v-title {
+	fill: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px !important;
+	font-weight: 100;
+}
+
+.tile1 {
+	margin-top: 1px !important;
+	position: absolute !important;
+}
+
+.tile1 div#UIComp_1 {
+	left: -24px !important;
+	top: -35px !important;
+}
+
+.tileValue.L,.tileValue.M {
+	font-weight: bold;
+	letter-spacing: 2px;
+	font-size: 32px;
+	padding: .2rem;
+}
+
+.tileValue.L {
+	font-weight: bold;
+	letter-spacing: 2px;
+	font-size: 42px;
+	padding: .2rem;
+}
+
+.sapUiMedia-Std-Desktop .sapSuiteInfoTileTitleTxt.Auto>.sapMText,.sapSuiteInfoTileTitleTxt.L>.sapMText
+	{
+	font-size: 1.5em !important;
+	font-weight: normal!important;
+	color: #333333!important;
+}
+.bold{
+	font-weight:bolder;
+}
+
+.s4BALANCEOBJECT
+{
+	padding-left:4px;
+}
+
